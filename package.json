@@ -1,5 +1,6 @@
 {
-  "name": "duolingo-project",
+  "name": "duolingo-next-project",
+  "description": "Duolingo project made with Next.JS",
   "version": "0.1.0",
   "private": true,
   "scripts": {
