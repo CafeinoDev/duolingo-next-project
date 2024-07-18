@@ -1,5 +1,5 @@
 import { Footer } from "./footer";
-import { Header } from "./header";
+import { Header } from "@/app/(landing)/header";
 
 export default function LandingLayout({
     children

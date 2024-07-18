@@ -13,7 +13,7 @@ interface Flag {
 const Flags: Flag[] = [
     {
         country: 'Spain',
-        src: './assets/flags/es.svg',
+        src: '/assets/flags/es.svg',
         size: {
             width: 40,
             height: 32
@@ -21,7 +21,7 @@ const Flags: Flag[] = [
     },
     {
         country: 'Croatian',
-        src: './assets/flags/hr.svg',
+        src: '/assets/flags/hr.svg',
         size: {
             width: 40,
             height: 32
@@ -29,7 +29,7 @@ const Flags: Flag[] = [
     },
     {
         country: 'Japan',
-        src: './assets/flags/jp.svg',
+        src: '/assets/flags/jp.svg',
         size: {
             width: 40,
             height: 32
@@ -37,7 +37,7 @@ const Flags: Flag[] = [
     },
     {
         country: 'Italy',
-        src: './assets/flags/it.svg',
+        src: '/assets/flags/it.svg',
         size: {
             width: 40,
             height: 32
@@ -45,7 +45,7 @@ const Flags: Flag[] = [
     },
     {
         country: 'French',
-        src: './assets/flags/fr.svg',
+        src: '/assets/flags/fr.svg',
         size: {
             width: 40,
             height: 32
