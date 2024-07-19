@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
     label: string;
@@ -21,16 +22,19 @@ export const SidebarItem = ({
     return (
         <Button
             variant={active ? "sidebarOutline" : "sidebar"}
-            className="justify-start h-14 "
+            className="justify-start h-14"
+            asChild
         >
-            <Image
-                src={ iconSrc }
-                alt={ label }
-                className="mr-5"
-                width={32}
-                height={32}
-            />
-            {label}
+            <Link href={ href }>
+                <Image
+                    src={iconSrc}
+                    alt={label}
+                    className="mr-5"
+                    width={32}
+                    height={32}
+                />
+                {label}
+            </Link>
         </Button>
     )
 }
