@@ -7,7 +7,7 @@ import { challengeOptions } from '../db/schema';
 
 const sql = neon(process.env.DATABASE_URL!);
 // @ts-ignore
-const db = drizzle(sql, {schema});
+const db = drizzle(sql, { schema });
 
 const main = async () => {
     try {
@@ -99,12 +99,25 @@ const main = async () => {
                 type: "SELECT",
                 order: 1,
                 question: 'Which one of these is the "the man"?',
-            }
+            },
+            {
+                id: 2,
+                lessonId: 1,
+                type: "ASSIST",
+                order: 2,
+                question: '"the man"',
+            },
+            {
+                id: 3,
+                lessonId: 1,
+                type: "SELECT",
+                order: 3,
+                question: 'Which one of these is the "the woman"?',
+            },
         ]);
 
         await db.insert(schema.challengeOptions).values([
             {
-                id: 1,
                 challengeId: 1,
                 correct: true,
                 text: "El hombre",
@@ -112,7 +125,6 @@ const main = async () => {
                 audioSrc: "/assets/audios/es_man.mp3",
             },
             {
-                id: 2,
                 challengeId: 1,
                 correct: false,
                 text: "La mujer",
@@ -120,8 +132,52 @@ const main = async () => {
                 audioSrc: "/assets/audios/es_woman.mp3",
             },
             {
-                id: 3,
                 challengeId: 1,
+                correct: false,
+                text: "El robot",
+                imageSrc: "/assets/images/robot.png",
+                audioSrc: "/assets/audios/es_robot.mp3",
+            },
+        ])
+
+        await db.insert(schema.challengeOptions).values([
+            {
+                challengeId: 2,
+                correct: true,
+                text: "El hombre",
+                audioSrc: "/assets/audios/es_man.mp3",
+            },
+            {
+                challengeId: 2,
+                correct: false,
+                text: "La mujer",
+                audioSrc: "/assets/audios/es_woman.mp3",
+            },
+            {
+                challengeId: 2,
+                correct: false,
+                text: "El robot",
+                audioSrc: "/assets/audios/es_robot.mp3",
+            },
+        ]);
+
+        await db.insert(schema.challengeOptions).values([
+            {
+                challengeId: 3,
+                correct: false,
+                text: "El hombre",
+                imageSrc: "/assets/images/man.png",
+                audioSrc: "/assets/audios/es_man.mp3",
+            },
+            {
+                challengeId: 3,
+                correct: true,
+                text: "La mujer",
+                imageSrc: "/assets/images/woman.png",
+                audioSrc: "/assets/audios/es_woman.mp3",
+            },
+            {
+                challengeId: 3,
                 correct: false,
                 text: "El robot",
                 imageSrc: "/assets/images/robot.png",
@@ -132,7 +188,7 @@ const main = async () => {
 
 
         console.log("Seeding finished");
-    } catch(error) {
+    } catch (error) {
         console.error(error);
         throw new Error("Failed to seed the database");
     }
