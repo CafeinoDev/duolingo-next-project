@@ -3,8 +3,16 @@ import { userProgress } from '@/db/schema';
 import { redirect } from "next/navigation";
 import { Quiz } from "@/components/app/lesson/Quiz";
 
-export default async function LessonPage() {
-    const lessonData = getLesson();
+type Props = {
+    params: {
+        lessonId: number;
+    }
+}
+
+export default async function LessonIdPage({
+    params
+}: Props) {
+    const lessonData = getLesson(params.lessonId);
     const userProgressData = getUserProgress();
 
     const [
