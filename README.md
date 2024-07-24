@@ -16,7 +16,7 @@ This project is a clone of Duolingo built with Next.js, React, TypeScript, Drizz
 
 ## Demo
 
-You can see the live demo of the project [here](#).
+You can see the live demo of the project [here](https://duolingo-next-project.vercel.app/).
 
 ## Features
 
