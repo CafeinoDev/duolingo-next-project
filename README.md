@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Here's a suggested README for your Duolingo Next.js project:
+
+---
+
+# Duolingo Next.js Clone
+
+This project is a clone of Duolingo built with Next.js, React, TypeScript, Drizzle, and Stripe. It demonstrates my proficiency in using modern web technologies to create scalable and efficient applications.
+
+## Table of Contents
+
+- [Demo](#demo)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+
+## Demo
+
+You can see the live demo of the project [here](#).
+
+## Features
+
+- User Authentication
+- Interactive Language Learning
+- Progress Tracking
+- In-app Purchases with Stripe
+
+## Technologies Used
+
+- **Next.js**: The React framework for server-rendered applications.
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A superset of JavaScript that adds static types.
+- **Clerk**: Authentication and user management.
+- **Drizzle**: A lightweight ORM for SQL databases.
+- **Stripe**: For handling payments and subscriptions.
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v20 or higher)
+- npm, yarn, pnpm, or bun (any package manager you prefer)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
 
-## Learn More
+    ```bash
+    git clone https://github.com/CafeinoDev/duolingo-next-project.git
+    cd duolingo-next-project
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Install dependencies:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    # or
+    bun install
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Run the development server:
 
-## Deploy on Vercel
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    # or
+    bun dev
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Project Structure
+
+The project structure follows a standard Next.js setup with a few additional directories:
+
+- **app**: Contains the main application pages.
+- **components**: Reusable UI components.
+- **db**: Database configuration and schema.
+- **lib**: Utility functions and helpers.
+- **public**: Static assets.
+- **scripts**: Custom scripts for the project.
+- **store**: State management using Zustand.

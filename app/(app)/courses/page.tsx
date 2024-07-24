@@ -1,7 +1,7 @@
 import { getCourses, getUserProgress } from "@/db/queries";
 import { List } from "./list";
 
-export const CoursesPage = async () => {
+export default async function CoursesPage() {
     const coursesData = getCourses();
     const userProgressData = getUserProgress();
 
@@ -22,5 +22,3 @@ export const CoursesPage = async () => {
         </div>
     )
 }
-
-export default CoursesPage;

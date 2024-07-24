@@ -1,9 +1,19 @@
-import App from "./app";
+import dynamic from "next/dynamic"
+import { redirect } from "next/navigation";
+
+import { isAdmin } from "@/lib/admin";
+
+const App = dynamic(() => import("./app"), { ssr: false })
 
 export default function AdminPage() {
-  return (
-    <div>
-      <App />
-    </div>
-  );
+
+    if (!isAdmin()) {
+        redirect("/")
+    }
+
+    return (
+        <div>
+            <App />
+        </div>
+    );
 }
