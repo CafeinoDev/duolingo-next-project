@@ -33,7 +33,7 @@ export const Header = ({
                 />
                 {
                     hasActiveSubscription
-                        ? <InfinityIcon className="size-6 stroke-[3]" />
+                        ? <InfinityIcon className="size-6 stroke-[3] shrink-0" />
                         : hearts
                 }
             </div>

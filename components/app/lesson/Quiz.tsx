@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { challengeOptions, challenges } from "@/db/schema";
+import { challengeOptions, challenges, userSubscription } from "@/db/schema";
 
 import Confetti from "react-confetti"
 import { Header } from "@/app/lesson/Header";
@@ -26,7 +26,9 @@ type Props = {
     })[];
     initialHearts: number;
     initialPercentage: number;
-    userSubscription: any; // TODO: Replace with subscription from DB
+    userSubscription: typeof userSubscription.$inferSelect & {
+        isActive?: boolean;
+    } | null;
 }
 
 export const Quiz = ({
@@ -42,7 +44,7 @@ export const Quiz = ({
     const { open: openPracticeModal } = usePracticeModal();
 
     useMount(() => {
-        if(initialPercentage === 100) {
+        if (initialPercentage === 100) {
             openPracticeModal();
         }
     });
@@ -108,7 +110,7 @@ export const Quiz = ({
                         />
                         <ResultCard
                             variant="hearts"
-                            value={hearts}
+                            value={userSubscription?.isActive ? "∞" : hearts}
                         />
                     </div>
                 </div>

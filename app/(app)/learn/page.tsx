@@ -3,9 +3,11 @@ import { redirect } from 'next/navigation'
 import { FeedWrapper, StickyWrapper } from '@/components/app'
 import { Header } from './Header'
 import { UserProgress } from '@/components/app'
-import { getCourseProgress, getLessonPercentage, getUnits, getUserProgress } from '@/db/queries'
+import { getCourseProgress, getLessonPercentage, getUnits, getUserProgress, getUserSubscription } from '@/db/queries'
 import { Unit } from '@/components/app/learn/Unit'
 import { lessons, units as unitsSchema } from '@/db/schema'
+import { Promo } from '@/components/app/learn/Promo'
+import { Quest } from '@/components/app/Quests'
 
 const LearnPage = async () => {
     const unitsData = getUnits();
@@ -13,16 +15,20 @@ const LearnPage = async () => {
     const lessonPercentageData = getLessonPercentage();
     const userProgressData = getUserProgress();
 
+    const userSubscriptionData = getUserSubscription();
+
     const [
         userProgress,
         units,
         courseProgress,
-        lessonPercentage
+        lessonPercentage,
+        userSubscription
     ] = await Promise.all([
         userProgressData,
         unitsData,
         courseProgressData,
-        lessonPercentageData
+        lessonPercentageData,
+        userSubscriptionData
     ]);
 
     if (!userProgress || !userProgress.activeCourse) {
@@ -33,6 +39,8 @@ const LearnPage = async () => {
         redirect('/courses');
     }
 
+    const isPro = !!userSubscription?.isActive
+
     return (
         <div className='flex flex-row-reverse gap-12 px-6'>
             <StickyWrapper>
@@ -40,8 +48,13 @@ const LearnPage = async () => {
                     activeCourse={userProgress.activeCourse}
                     hearts={userProgress.hearts}
                     points={userProgress.points}
-                    hasActiveSubscription={false}
+                    hasActiveSubscription={!!userSubscription?.isActive}
                 />
+                {
+                    !isPro &&
+                    <Promo />
+                }
+                <Quest points={userProgress.points} />
             </StickyWrapper>
             <FeedWrapper>
                 <Header title={userProgress.activeCourse.title} />
